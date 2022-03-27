@@ -19,6 +19,7 @@ const Main = () => {
 		setLoading(true);
 		const data = await axios.post("http://localhost:5000/auth", { number });
 		setDetails(data);
+		setLoading(false);
 	};
 	console.log(number);
 	return (
