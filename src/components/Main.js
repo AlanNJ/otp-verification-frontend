@@ -17,9 +17,14 @@ const Main = () => {
 	const [details, setDetails] = useState();
 	const getOtp = async (e) => {
 		setLoading(true);
-		const data = await axios.post("http://localhost:5000/auth", { number });
-		setDetails(data);
-		setLoading(false);
+		if (number.length === 10 && typeof number === Number) {
+			const data = await axios.post("http://localhost:5000/auth", { number });
+			setDetails(data);
+			setLoading(false);
+		} else {
+			console.log("please enter a valid mobile number");
+			setLoading(false);
+		}
 	};
 	console.log(number);
 	return (
@@ -41,21 +46,26 @@ const Main = () => {
 						onChange={(e) => setNumber(e.target.value)}
 					/>
 				</InputGroup>
-				<Button
-					rightIcon={<ArrowForwardIcon />}
-					colorScheme="teal"
-					variant="outline"
-					onClick={getOtp}
-				>
-					Send OTP
-				</Button>
-				<Spinner
-					thickness="4px"
-					speed="0.65s"
-					emptyColor="gray.200"
-					color="blue.500"
-					size="xl"
-				/>
+				{!loading ? (
+					<>
+						<Button
+							rightIcon={<ArrowForwardIcon />}
+							colorScheme="teal"
+							variant="outline"
+							onClick={getOtp}
+						>
+							Send OTP
+						</Button>
+					</>
+				) : (
+					<Spinner
+						thickness="4px"
+						speed="0.65s"
+						emptyColor="gray.200"
+						color="blue.500"
+						size="xl"
+					/>
+				)}
 			</div>
 		</>
 	);
