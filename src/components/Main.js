@@ -13,10 +13,12 @@ import axios from "axios";
 
 const Main = () => {
 	const [number, setNumber] = useState();
-	const [loading, isLoading] = useState(false);
-	const getOtp = (e) => {
-		const data = axios.post("http://localhost:5000/auth", { number });
-		console.log(data);
+	const [loading, setLoading] = useState(false);
+	const [details, setDetails] = useState();
+	const getOtp = async (e) => {
+		setLoading(true);
+		const data = await axios.post("http://localhost:5000/auth", { number });
+		setDetails(data);
 	};
 	console.log(number);
 	return (
