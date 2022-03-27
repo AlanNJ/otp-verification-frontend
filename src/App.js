@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import Main from "./components/Main";
+import { ChakraProvider } from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	const [number, setNumber] = useState();
+	const [loading, isLoading] = useState(false);
+
+	const getOtp = (e) => {
+		setNumber(e.target.value);
+	};
+	console.log(number);
+	return (
+		<div className="App">
+			<ChakraProvider>
+				<Main getOtp={getOtp} />
+			</ChakraProvider>
+		</div>
+	);
 }
 
 export default App;
