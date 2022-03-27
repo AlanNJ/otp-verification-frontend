@@ -15,6 +15,7 @@ const Main = () => {
 	const [number, setNumber] = useState();
 	const [loading, setLoading] = useState(false);
 	const [details, setDetails] = useState();
+	const [user, setUser] = useState();
 	const getOtp = async (e) => {
 		setLoading(true);
 		if (number.length === 10 && typeof number === Number) {
