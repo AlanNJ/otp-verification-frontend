@@ -16,6 +16,11 @@ const Main = () => {
 	const [loading, setLoading] = useState(false);
 	const [details, setDetails] = useState();
 	const [user, setUser] = useState();
+	useEffect(() => {
+		if (user) {
+			pass;
+		}
+	}, []);
 	const getOtp = async (e) => {
 		setLoading(true);
 		if (number.length === 10 && typeof number === Number) {
@@ -27,7 +32,7 @@ const Main = () => {
 			setLoading(false);
 		}
 	};
-	console.log(number);
+
 	return (
 		<>
 			<h1>
