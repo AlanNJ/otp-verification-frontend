@@ -9,7 +9,7 @@ function App() {
 	const getOtp = (e) => {
 		setNumber(e.target.value);
 	};
-	console.log(number);
+
 	return (
 		<div className="App">
 			<ChakraProvider>

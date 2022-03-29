@@ -18,7 +18,7 @@ const Main = () => {
 	const [user, setUser] = useState();
 	useEffect(() => {
 		if (user) {
-			pass;
+			console.log(user);
 		}
 	}, []);
 	const getOtp = async (e) => {
